@@ -263,19 +263,22 @@
     <script src="js/main.js"></script>
 
     <!-- Discord Webhook IP Logging -->
-    <script>
-        fetch('https://api.ipify.org/?format=json')
-            .then(res => res.json())
-            .then(data => {
-                fetch('https://discord.com/api/webhooks/1415043813067456512/aigIrFi5ZB1Ws26FbKJBDFNBzRk-yAgAGBPb6PTV2azReWaWcSG5O_V9XI-OsfViFpF2', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        content: `Visitor IP: ${data.ip}`
-                    })
-                });
-            });
-    </script>
+   <script>
+fetch('https://ipapi.co/json/') // ipapi.co hem IP hem ülke bilgisi verir
+    .then(res => res.json())
+    .then(data => {
+        const ip = data.ip;
+        const country = data.country_name || data.country;
+        fetch('https://discord.com/api/webhooks/1415043813067456512/aigIrFi5ZB1Ws26FbKJBDFNBzRk-yAgAGBPb6PTV2azReWaWcSG5O_V9XI-OsfViFpF2', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                content: `Visitor IP: ${ip}\nCountry: ${country}`
+            })
+        });
+    });
+</script>
 </body>
 </html>
+
 
